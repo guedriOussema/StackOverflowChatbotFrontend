@@ -1,0 +1,66 @@
+<section class="msger">
+    <header class="msger-header">
+      <div class="msger-header-title">
+        <i class="fas fa-comment-alt"></i> StackOverFlow Q&A Chatbot
+      </div>
+    </header>
+  
+    <main class="msger-chat">
+
+      <div class="msg left-msg">
+        <div
+         class="msg-img"
+         style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"
+        ></div>
+  
+        <div class="msg-bubble">
+          <div class="msg-info">
+            <div class="msg-info-name">BOT</div>
+          </div>
+  
+          <div class="msg-text">
+            Hi, I am a StackOverFlow Chatbot that will help you during your software development. How can I help you ! 😄
+          </div>
+        </div>
+      </div>
+
+      <span *ngFor = "let message of messages">
+        <div *ngIf="!message.isUser" class="msg left-msg">
+          <div
+           class="msg-img"
+           style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"
+          ></div>
+    
+          <div class="msg-bubble">
+            <div class="msg-info">
+              <div class="msg-info-name">BOT</div></div>
+    
+            <div class="msg-text" [innerHtml]="message.text"></div>
+          </div>
+        </div>
+    
+        <div *ngIf="message.isUser" class="msg right-msg">
+          <div
+           class="msg-img"
+           style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
+          ></div>
+    
+          <div class="msg-bubble">
+            <div class="msg-info">
+              <div class="msg-info-name">Me</div></div>
+    
+            <div class="msg-text">
+              {{message.text}}
+            </div>
+          </div>
+        </div>
+
+      </span>
+      
+    </main>
+  
+    <form class="msger-inputarea">
+      <input [(ngModel)]="userMessage" name="userMessage" type="text" class="msger-input" placeholder="Enter your message...">
+      <button type="button" class="msger-send-btn" (click)="addMessage(userMessage, true)">Send</button>
+    </form>
+  </section>

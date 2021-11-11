@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@nebular/theme/styles/prebuilt/cosmic.css",
               "src/styles.css"
             ],
             "scripts": []
